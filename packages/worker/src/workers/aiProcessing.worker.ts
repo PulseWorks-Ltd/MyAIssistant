@@ -202,7 +202,7 @@ Return only the category name.`;
       return;
     }
 
-    const emailBodies = sentEmails.map((e) => e.body).filter(Boolean);
+    const emailBodies = sentEmails.map((e: { body: string }) => e.body).filter(Boolean);
     const sampledEmails = emailBodies.slice(0, 10).join('\n\n---\n\n');
 
     const prompt = `Analyze these sent emails and extract the writing style characteristics:

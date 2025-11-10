@@ -1,23 +1,28 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import api from '../services/api';
 import { useAuthStore } from '../stores/auth';
 import EmailList from '../components/EmailList';
 import EmailDetail from '../components/EmailDetail';
 
+interface EmailSummary {
+  summary: string;
+  keyPoints: string[];
+  sentiment: string;
+  urgency: string;
+  category?: string;
+}
+
 interface Email {
   id: string;
   subject: string;
   from: string;
+  to: string[];
+  body: string;
   bodyPreview: string;
   receivedDateTime: string;
   isRead: boolean;
-  summary?: {
-    summary: string;
-    keyPoints: string[];
-    sentiment: string;
-    urgency: string;
-  };
+  summary?: EmailSummary;
 }
 
 export default function DashboardPage() {

@@ -1,15 +1,23 @@
 import { formatDistanceToNow } from 'date-fns';
 
+interface EmailSummary {
+  summary: string;
+  keyPoints: string[];
+  sentiment: string;
+  urgency: string;
+  category?: string;
+}
+
 interface Email {
   id: string;
   subject: string;
   from: string;
+  to: string[];
+  body: string;
   bodyPreview: string;
   receivedDateTime: string;
   isRead: boolean;
-  summary?: {
-    urgency: string;
-  };
+  summary?: EmailSummary;
 }
 
 interface EmailListProps {
