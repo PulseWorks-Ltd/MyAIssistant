@@ -13,9 +13,12 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\"",
     "clean": "turbo run clean && rm -rf node_modules",
-    "db:migrate": "cd packages/server && npm run db:migrate",
     "db:generate": "cd packages/server && npm run db:generate",
-    "db:studio": "cd packages/server && npm run db:studio"
+    "db:migrate": "cd packages/server && npm run db:migrate",
+    "db:studio": "cd packages/server && npm run db:studio",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f"
   },
   "devDependencies": {
     "prettier": "^3.1.0",
